@@ -9,6 +9,7 @@ CREATE TABLE users (
   last_name VARCHAR(100) NOT NULL,
   email VARCHAR(255) NOT NULL,
   hidden BOOLEAN NOT NULL,
+--   created_at is handled by Sequelize.
   created_at DATETIME NOT NULL,
   password VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
@@ -31,6 +32,8 @@ CREATE TABLE checklist (
 CREATE TABLE favorite_quote (
   id int NOT NULL AUTO_INCREMENT,
   quote VARCHAR(255) NOT NULL,
+  quote_author VARCHAR(100),
+  reflection VARCHAR(255),
   liked BOOLEAN NOT NULL,
   user_id int NOT NULL,
     CONSTRAINT fk_users
