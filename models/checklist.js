@@ -1,5 +1,5 @@
-module.exports = function ( sequelize, DataTypes){
-  const Checklist = sequelize.define('Checklist', {
+module.exports = function(sequelize, DataTypes) {
+  const Checklist = sequelize.define("Checklist", {
     body: {
       type: DataTypes.STRING,
       allowNull: false
@@ -13,12 +13,13 @@ module.exports = function ( sequelize, DataTypes){
       defaultValue: 0
     },
     user_id: {
-      type: DataTypes.INTEGER;
+      type: DataTypes.INTEGER,
       references: {
         model: User,
-        key: 'id'
+        key: "id",
+        deferrable: Deferrable.INITIALLY_DEFERRED
       }
     }
   });
+  return Checklist;
 };
-  
