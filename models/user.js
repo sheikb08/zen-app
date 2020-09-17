@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 // Creating our User model. Sequelize will create an incrementing id as well as a created_at column.
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
-    firstName: {
+    first_name: {
       type: DataTypes.STRING(100),
       allowNull: false,
       validate: {
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    lastName: {
+    last_name: {
       type: DataTypes.STRING(100),
       //user does not have to input a last name.
       allowNull: true,
