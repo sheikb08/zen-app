@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },
-    userId: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "Users",
