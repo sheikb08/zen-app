@@ -12,12 +12,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: 0
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
-        key: "id",
-        deferrable: Deferrable.INITIALLY_DEFERRED
+        model: "User",
+        key: "id"
       }
     }
   });
