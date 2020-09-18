@@ -19,7 +19,7 @@ As someone browsing the web
 I want my new tab to help me focus and inspire me
 So that I can start each browsing session with peace.
 ```
-![nyt-search](image/preview.png)
+![demo](image/preview.png)
 
 
 ### Functionality
