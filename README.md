@@ -60,3 +60,32 @@ So that I can start each browsing session with peace.
   * Completed
   * Hidden
   * UserID (FK)
+
+
+  # Notes:
+
+  ### Endpoints:
+  ```
+ Sign-up Page
+   POST users
+
+ Login Page
+   GET users
+   POST users
+
+ Main Page
+   GET users
+   GET checklist
+   GET ALL checklist
+   GET favorite_quote
+   GET favorite_quote BY favorite_quote.id
+   POST checklist
+   POST favorite_quote
+   UPDATE checklist
+   UPDATE favorite_quote
+
+ View Favorite Quotes Page
+   GET favorite_quote
+   GET ALL favorite_quote
+   UPDATE favorite_quote
+```
