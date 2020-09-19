@@ -57,5 +57,19 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
+  // Default Scope defined here not to include password when returning res.json, and to exclude hidden users.
+  User.addScope("defaultScope", {
+    attributes: { exclude: ["password"] },
+    include: [{ model: User, where: { hidden: false } }]
+  });
+  // Additional Scope methods to return passwords and to view Hidden.
+  // Scopes can be applied in the following manner: `await Project.scope('defaultScope', 'viewHidden').findAll();`
+  User.addScope("withPassword", {
+    withPassword: { attributes: {} }
+  });
+  User.addScope("viewHidden", {
+    include: [{ model: User, where: { hidden: true } }]
+  });
+
   return User;
 };
