@@ -44,6 +44,7 @@ module.exports = function(app) {
 
   //UPDATE checklist item as complete
   app.put("/api/list/:id", (req, res) => {
+    const id = req.params.id;
     db.Checklist.update(
       {
         completed: 1,
