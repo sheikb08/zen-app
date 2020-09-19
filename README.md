@@ -65,7 +65,7 @@ So that I can start each browsing session with peace.
   # Notes:
 
   ### Endpoints:
-  ```
+ ```
  Sign-up Page
    POST users
 
@@ -88,4 +88,4 @@ So that I can start each browsing session with peace.
    GET favorite_quote
    GET ALL favorite_quote
    UPDATE favorite_quote
-```
+   
