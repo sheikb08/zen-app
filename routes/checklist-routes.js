@@ -13,6 +13,17 @@ module.exports = function(app) {
       });
   });
 
+  //GET ALL Completed items: speculative, but possibly useful
+  app.get("/api/list/completed", (req, res) => {
+    db.Checklist.findAll({ where: { completed: 1, hidden: 1 } })
+      .then(data => {
+        res.status(200).json(data);
+      })
+      .catch(err => {
+        res.status(404).json(err);
+      });
+  });
+
   //GET checklist item
   app.get("/api/list/:id", (req, res) => {
     db.Checklist.findAll({ where: { id: req.params.id } })
@@ -42,7 +53,9 @@ module.exports = function(app) {
       });
   });
 
-  //UPDATE checklist item as complete
+  //UPDATE checklist item as complete-assuming item completion is stored as data in html,
+  //could rewrite this to be a more dynamic switch: if completed items can be viewed,
+  //that would solve my concern below
   app.put("/api/list/:id", (req, res) => {
     const id = req.params.id;
     db.Checklist.update(
