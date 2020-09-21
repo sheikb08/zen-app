@@ -5,8 +5,8 @@ module.exports = function(app) {
   app.get("/api/likes", (req, res) => {
     db.Likes.findAll({
       where: {
-        user_id: req.user.id,
-        hidden: req.hidden
+        user_id: req.body.user_id,
+        hidden: req.body.hidden
       }
     })
 
@@ -23,7 +23,7 @@ module.exports = function(app) {
     db.Likes.findOne({
       where: {
         id: req.params.id,
-        user_id: req.user.id
+        user_id: req.body.user_id
       }
     })
       .then(data => {
@@ -37,10 +37,10 @@ module.exports = function(app) {
   //POST Likes item
   app.post("/api/likes", (req, res) => {
     db.Likes.create({
-      quote: req.quote,
-      quote_author: req.quote_author,
-      reflection: req.reflection,
-      user_id: req.user.id
+      quote: req.body.quote,
+      quote_author: req.body.quote_author,
+      reflection: req.body.reflection,
+      user_id: req.body.user_id
     })
       .then(data => {
         res.status(200).json(data);
@@ -55,7 +55,7 @@ module.exports = function(app) {
     const id = req.params.id;
     db.Likes.update(
       {
-        hidden: req.hidden
+        hidden: req.body.hidden
       },
       {
         where: {
