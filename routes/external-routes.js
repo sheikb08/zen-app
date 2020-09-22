@@ -1,5 +1,5 @@
 //Access .env file
-require('dotenv').config()
+require("dotenv").config();
 
 //Retrieve API key and user info
 const key = process.env.PB_Key;
