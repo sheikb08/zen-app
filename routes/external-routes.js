@@ -18,8 +18,8 @@ function getQuote() {
   });
 };
 
-//Get image set
-function getImages() {
+//Get image set//extract image
+function getImage() {
   const settings = {
     url: `https://pixabay.com/api/?key=${key}&image_type=photo&category=nature&editors_choice=true`,
     method: "GET",
@@ -28,15 +28,20 @@ function getImages() {
       Cookie: cookie
     }
   };
-
+  //Gets image set
   $.ajax(settings).done(response => {
-    console.log(response);
+    //Retrieving/returning an img url here let's us keep api info entirely in the backend
+    //Picks an image at random from returned array
+    const imgId = Math.floor(Math.random() * response.hits.length);
+    //Retrieves image url
+    const imgURL = response.hits[imgId].webformatURL;
+    return imgURL;
   });
+  return imgURL;
 }
 
-//Function here or elsewhere to get random image from set-math.random * set.length, essentially
 //URL and quote should potentially be pared, for faster rendering and/or db retrieval depending on presentation
 
 //Exports
 exports.getQuote = getQuote;
-exports.getImages = getImages;
+exports.getImage = getImage;
