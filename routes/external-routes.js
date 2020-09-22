@@ -36,3 +36,7 @@ function getImages() {
 
 //Function here or elsewhere to get random image from set-math.random * set.length, essentially
 //URL and quote should potentially be pared, for faster rendering and/or db retrieval depending on presentation
+
+//Exports
+exports.getQuote = getQuote;
+exports.getImages = getImages;
