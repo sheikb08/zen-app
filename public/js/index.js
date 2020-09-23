@@ -65,10 +65,20 @@ $(document).ready(() => {
       passwordsignup: passwordsignupInput.val().trim()
     };
 
-    if (!userData.firstname || !userData.lastname||!userData.emailsignup||!userData.passwordsignup) {
+    if (
+      !userData.firstname ||
+      !userData.lastname ||
+      !userData.emailsignup ||
+      !userData.passwordsignup
+    ) {
       return;
     }
-    signUpUser(userData.firstname,userData.lastname,userData.emailsignup,userData.passwordsignup);
+    signUpUser(
+      userData.firstname,
+      userData.lastname,
+      userData.emailsignup,
+      userData.passwordsignup
+    );
     firstnameInput.val("");
     lastnameInput.val("");
     emailsignupInput.val("");
