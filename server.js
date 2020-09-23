@@ -14,6 +14,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
@@ -29,6 +30,9 @@ require("./routes/html-routes.js")(app);
 require("./routes/user-routes.js")(app);
 require("./routes/checklist-routes.js")(app);
 require("./routes/likes-routes.js")(app);
+
+//Requiring our external api scripts
+require("./routes/api_js.js");
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

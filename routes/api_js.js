@@ -75,11 +75,9 @@ async function mkQuoteItem() {
 }
 
 //Get quote/image each day at midnight
-cron.schedule("* 0 0 * *", () => {
+cron.schedule("* 0 0 * * *", () => {
   mkQuoteItem();
 });
 
-//Below can be uncommented for testing
-//getQuote();
-//getImage();
-//mkQuoteItem();
+//Gets initial quote/image on server launch
+mkQuoteItem();
