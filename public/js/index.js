@@ -86,8 +86,8 @@ $(document).ready(() => {
 
     function signUpUser(firstname, lastname, email, password) {
       $.post("/api/signup", {
-        firstname: firstname,
-        lastname: lastname,
+        first_name: firstname,
+        last_name: lastname,
         email: email,
         password: password
       })
