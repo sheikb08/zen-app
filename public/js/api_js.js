@@ -15,7 +15,7 @@ function getQuote() {
   $.ajax(settings).done(response => {
     console.log(response);
   });
-};
+}
 
 //Get image set//extract image
 function getImage() {
