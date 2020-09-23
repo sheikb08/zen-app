@@ -8,12 +8,13 @@ const db = require("../models");
 
 //Retrieve API key and user info
 const key = process.env.US_KEY;
+const qKey = process.env.PB_KEY;
 
 //Get quote
 async function getQuote() {
   const config = {
     method: "get",
-    url: "https://quotes.rest/qod",
+    url: `https://quotes.rest/qod?api_key=${qKey}`,
     headers: {}
   };
 
@@ -59,13 +60,21 @@ async function getImage() {
 
 //Pair quote/image and send to database
 async function mkQuoteItem(){
+  //Get data from apis
   const { quote, author } = await getQuote();
-  console.log(quote, author);
   const imgURL = await getImage();
-  console.log(imgURL);
+
+  //Create database entry
+  const quoteItem = await db.Quote.create({
+    quote_body: quote,
+    quote_author: author,
+    image_url: imgURL
+  });
+ 
+  return quoteItem;
 }
 
 //Below can be uncommented for testing
 //getQuote();
 //getImage();
-mkQuoteItem();
+//mkQuoteItem();
