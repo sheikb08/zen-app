@@ -70,7 +70,7 @@ async function mkQuoteItem(){
     quote_author: author,
     image_url: imgURL
   });
- 
+
   return quoteItem;
 }
 
