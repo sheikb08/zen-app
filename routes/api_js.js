@@ -42,7 +42,7 @@ async function getImage() {
     headers: {}
   };
 
-  //Sets const to wait for response, gets image set
+  //Gets image set
   const imgURL = await axios(config)
     .then(response => {
       //Selects image at random
@@ -59,7 +59,7 @@ async function getImage() {
 }
 
 //Pair quote/image and send to database
-async function mkQuoteItem(){
+async function mkQuoteItem() {
   //Get data from apis
   const { quote, author } = await getQuote();
   const imgURL = await getImage();
@@ -73,6 +73,11 @@ async function mkQuoteItem(){
 
   return quoteItem;
 }
+
+//Get quote/image each day at midnight
+cron.schedule("* 0 0 * *", () => {
+  mkQuoteItem();
+});
 
 //Below can be uncommented for testing
 //getQuote();
