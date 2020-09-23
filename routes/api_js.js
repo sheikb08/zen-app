@@ -1,5 +1,6 @@
-//Access .env file
+//Dependencies
 require("dotenv").config();
+const cron = require("node-cron")
 
 //Retrieve API key and user info
 const key = process.env.US_KEY;
