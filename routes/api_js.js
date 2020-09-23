@@ -5,7 +5,6 @@ require("dotenv").config();
 
 //Access quotes model
 const db = require("../models");
-const { sequelize } = require("../models");
 
 //Retrieve API key and user info
 const key = process.env.US_KEY;
