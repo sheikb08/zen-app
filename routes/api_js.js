@@ -1,26 +1,36 @@
-//Dependencies
+//NPM Package dependencies
 const cron = require("node-cron");
 const axios = require("axios");
 require("dotenv").config();
+
+//Access quotes model
+const db = require("../models");
 
 //Retrieve API key and user info
 const key = process.env.US_KEY;
 
 //Get quote
-function getQuote() {
+async function getQuote() {
   const config = {
     method: "get",
     url: "https://quotes.rest/qod",
     headers: {}
   };
 
-  axios(config)
+  const quoteData = await axios(config)
     .then(response => {
-      console.log(JSON.stringify(response.data));
+      //Gets relevant data from api response
+      const quoteData = {
+        quote: response.data.contents.quotes[0].quote,
+        author: response.data.contents.quotes[0].author
+      };
+      return quoteData;
     })
     .catch(error => {
       console.log(error);
     });
+
+  return quoteData;
 }
 
 //Get image set//extract image
@@ -48,6 +58,13 @@ async function getImage() {
   return imgURL;
 }
 
+//Pair quote/image and send to database
+async function mkQuoteItem(){
+  const { quote, author } = await getQuote();
+  console.log(quote, author);
+}
+
 //Below can be uncommented for testing
 //getQuote();
-getImage();
+//getImage();
+mkQuoteItem();
