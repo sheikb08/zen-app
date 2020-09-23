@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  const Quote = sequelize.define("Checklist", {
+  const Quote = sequelize.define("Quote", {
     quote: {
       type: DataTypes.STRING(255),
       allowNull: false
