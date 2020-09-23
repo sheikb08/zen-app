@@ -1,46 +1,53 @@
 //Dependencies
+const cron = require("node-cron");
+const axios = require("axios");
 require("dotenv").config();
-const cron = require("node-cron")
 
 //Retrieve API key and user info
 const key = process.env.US_KEY;
 
 //Get quote
 function getQuote() {
-  const settings = {
+  const config = {
+    method: "get",
     url: "https://quotes.rest/qod",
-    method: "GET",
-    timeout: 0
+    headers: {}
   };
 
-  $.ajax(settings).done(response => {
-    console.log(response);
-  });
+  axios(config)
+    .then(response => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 //Get image set//extract image
-function getImage() {
-  const settings = {
+async function getImage() {
+  const config = {
+    method: "get",
     url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}`,
-    method: "GET",
-    timeout: 0
+    headers: {}
   };
 
-  //Retrieves image collection
-  $.ajax(settings).done(response => {
-    //Selects image at random
-    const imgId = Math.floor(Math.random() * response.length);
+  //Sets const to wait for response, gets image set
+  const imgURL = await axios(config)
+    .then(response => {
+      //Selects image at random
+      const imgId = Math.floor(Math.random() * response.data.length);
 
-    //Retrieves image url
-    const imgURL = response[imgId].urls.regular;
+      //Retrieves image url
+      return response.data[imgId].urls.regular;
+    })
+    .catch(error => {
+      console.log(error);
+    });
 
-    return imgURL;
-  });
+  console.log(imgURL);
   return imgURL;
 }
 
-//URL and quote should potentially be pared, for faster rendering and/or db retrieval depending on presentation
-
-//Exports to pass linting
-exports.getQuote = getQuote;
-exports.getImage = getImage;
+//Below can be uncommented for testing
+//getQuote();
+getImage();
