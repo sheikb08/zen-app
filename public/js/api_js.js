@@ -39,3 +39,7 @@ function getImage() {
 }
 
 //URL and quote should potentially be pared, for faster rendering and/or db retrieval depending on presentation
+
+//Exports to pass linting
+exports.getQuote = getQuote;
+exports.getImage = getImage;
