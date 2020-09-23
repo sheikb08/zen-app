@@ -128,7 +128,8 @@ body {
 
 body,
 main::before {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg) 0 / cover fixed;
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg);
+    background-position: center;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 18px;
     background-color: #CCC;
@@ -282,8 +283,8 @@ textarea:focus {
     background-color: #0C9;
     color: white;
     font-size: 24px;
-    padding-top: 22px;
-    padding-bottom: 22px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
