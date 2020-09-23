@@ -54,7 +54,6 @@ async function getImage() {
       console.log(error);
     });
 
-  console.log(imgURL);
   return imgURL;
 }
 
@@ -62,6 +61,8 @@ async function getImage() {
 async function mkQuoteItem(){
   const { quote, author } = await getQuote();
   console.log(quote, author);
+  const imgURL = await getImage();
+  console.log(imgURL);
 }
 
 //Below can be uncommented for testing
