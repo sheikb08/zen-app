@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const Quote = sequelize.define("Quote", {
-    quote: {
+    quote_body: {
       type: DataTypes.STRING(255),
       allowNull: false
     },
