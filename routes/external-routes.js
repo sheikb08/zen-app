@@ -79,5 +79,38 @@ cron.schedule("* 0 0 * * *", () => {
   mkQuoteItem();
 });
 
-//Gets initial quote/image on server launch
-mkQuoteItem();
+//Gets initial quote/image if required
+async function initialQuote() {
+  //Gets createdAt value for last row in Quotes
+  const lastQuote = await db.Quote.findOne({
+    attributes: ["createdAt"],
+    order: [["id", "DESC"]]
+  });
+
+  //If a value is returned, check it
+  if (lastQuote !== null) {
+    //Reference variables for createdAt date
+    const quoteDate = lastQuote.dataValues.createdAt;
+
+    //Creates date object for present moment
+    const presentDate = new Date();
+
+    //Compares day, year, and month: returns fn if quote already exists
+    if (
+      quoteDate.getDate() === presentDate.getDate() &&
+      quoteDate.getFullYear() === presentDate.getFullYear() &&
+      quoteDate.getMonth() === presentDate.getMonth()
+    ) {
+      return;
+    }
+
+    //Creates quote if required
+    mkQuoteItem();
+    return;
+  }
+
+  //Creates quote if initial query returns null
+  mkQuoteItem();
+}
+
+initialQuote();
