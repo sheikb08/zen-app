@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "watch": "nodemon server.js"
@@ -30,6 +30,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
+    "nodemon": "^2.0.4",
     "prettier": "^1.13.7"
   }
 }

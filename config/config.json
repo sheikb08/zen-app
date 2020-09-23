@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "N19A03a16a02!",
     "database": "zen_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
