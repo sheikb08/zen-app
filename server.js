@@ -31,9 +31,6 @@ require("./routes/user-routes.js")(app);
 require("./routes/checklist-routes.js")(app);
 require("./routes/likes-routes.js")(app);
 
-//Requiring our external api scripts
-require("./routes/api_js.js");
-
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
@@ -42,5 +39,8 @@ db.sequelize.sync().then(() => {
       PORT,
       PORT
     );
+
+    //Once database is created, require (and run) our external API queries
+    require("./routes/api_js");
   });
 });
