@@ -2,8 +2,7 @@
 require("dotenv").config();
 
 //Retrieve API key and user info
-const key = process.env.PB_Key;
-const cookie = process.env.PB_Cookie;
+const key = process.env.US_KEY;
 
 //Get quote
 function getQuote() {
@@ -21,20 +20,19 @@ function getQuote() {
 //Get image set//extract image
 function getImage() {
   const settings = {
-    url: `https://pixabay.com/api/?key=${key}&image_type=photo&category=nature&editors_choice=true`,
+    url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}`,
     method: "GET",
-    timeout: 0,
-    headers: {
-      Cookie: cookie
-    }
+    timeout: 0
   };
-  //Gets image set
+
+  //Retrieves image collection
   $.ajax(settings).done(response => {
-    //Retrieving/returning an img url here let's us keep api info entirely in the backend
-    //Picks an image at random from returned array
-    const imgId = Math.floor(Math.random() * response.hits.length);
+    //Selects image at random
+    const imgId = Math.floor(Math.random() * response.length);
+
     //Retrieves image url
-    const imgURL = response.hits[imgId].webformatURL;
+    const imgURL = response[imgId].urls.regular;
+
     return imgURL;
   });
   return imgURL;
