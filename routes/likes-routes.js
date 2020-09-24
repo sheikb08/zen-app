@@ -1,13 +1,14 @@
 const db = require("../models");
 
 module.exports = function(app) {
-  //GET ALL Likes items
+  //GET ALL Likes items for a user
   app.get("/api/likes", (req, res) => {
     db.Likes.findAll({
       where: {
-        user_id: req.body.user_id,
+        userId: req.body.userId,
         hidden: req.body.hidden
-      }
+      },
+      include: Quote
     })
       .then(data => {
         res.status(200).json(data);
@@ -17,13 +18,14 @@ module.exports = function(app) {
       });
   });
 
-  //GET Likes item
+  //GET one Likes item for a user, by id
   app.get("/api/likes/:id", (req, res) => {
     db.Likes.findOne({
       where: {
         id: req.params.id,
-        user_id: req.body.user_id
-      }
+        userId: req.body.userId
+      },
+      include: Quote
     })
       .then(data => {
         res.status(200).json(data);
@@ -33,12 +35,13 @@ module.exports = function(app) {
       });
   });
 
-  //POST Likes item
+  //POST Likes item for a user and a quote
   app.post("/api/likes", (req, res) => {
     db.Likes.create({
-      quote_id: req.body.quote_id,
+      userId: req.body.userId,
+      quoteId: req.body.quoteId,
       reflection: req.body.reflection,
-      user_id: req.body.user_id
+      hidden: false
     })
       .then(data => {
         res.status(200).json(data);
@@ -48,16 +51,16 @@ module.exports = function(app) {
       });
   });
 
-  //UPDATE Likes item hide or unhide
+  //UPDATE Likes item hide or unhide by id
   app.put("/api/likes/:id", (req, res) => {
-    const id = req.params.id;
     db.Likes.update(
       {
         hidden: req.body.hidden
       },
       {
         where: {
-          id: id
+          userId: req.body.userId,
+          id: req.params.id
         }
       }
     )
