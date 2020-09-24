@@ -9,7 +9,6 @@ module.exports = function(app) {
         hidden: req.body.hidden
       }
     })
-
       .then(data => {
         res.status(200).json(data);
       })
@@ -37,8 +36,7 @@ module.exports = function(app) {
   //POST Likes item
   app.post("/api/likes", (req, res) => {
     db.Likes.create({
-      quote: req.body.quote,
-      quote_author: req.body.quote_author,
+      quote_id: req.body.quote_id,
       reflection: req.body.reflection,
       user_id: req.body.user_id
     })
