@@ -11,9 +11,9 @@ $(document).ready(() => {
     );
   }
 
-  function reflection(saveReflection) {
+  function reflection() {
     $(".submit").on("click", () => {
-      saveReflection = $(".submit").val();
+      const saveReflection = $(".submit").val();
       history.push(saveReflection);
       setStage();
     });
@@ -28,10 +28,10 @@ $(document).ready(() => {
   });
 
   $(".heart").on("click", () => {
+    reflection();
     // clear input box
     $(".submit").val("");
     // clear any old content
     $("#comment_text").empty();
-    reflection();
   });
 });
