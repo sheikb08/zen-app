@@ -21,6 +21,13 @@ async function getQuote() {
   const quoteData = await axios(config)
     .then(response => {
       //Gets relevant data from api response
+      if (response.data.contents.quotes[0].author === null) {
+        const quoteData = {
+          quote: response.data.contents.quotes[0].quote,
+          author: "Anonymous"
+        };
+        return quoteData;
+      }
       const quoteData = {
         quote: response.data.contents.quotes[0].quote,
         author: response.data.contents.quotes[0].author
@@ -62,6 +69,7 @@ async function getImage() {
 async function mkQuoteItem() {
   //Get data from apis
   const { quote, author } = await getQuote();
+
   const imgURL = await getImage();
 
   //Create database entry
