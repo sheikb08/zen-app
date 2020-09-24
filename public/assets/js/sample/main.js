@@ -11,9 +11,9 @@ $(document).ready(() => {
     );
   }
 
-  function reflection(){
+  function reflection(){ 
     $(".submit").on("click", () => {
-      let saveReflection = $(".submit").val();
+      const saveReflection = $(".submit").val();
       history.push(saveReflection);
       setStage();
     });
