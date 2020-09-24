@@ -61,24 +61,23 @@ $(document).ready(() => {
     const userData = {
       firstname: firstnameInput.val().trim(),
       lastname: lastnameInput.val().trim(),
-      emailsignup: emailsignupInput.val().trim(),
-      passwordsignup: passwordsignupInput.val().trim()
+      email: emailsignupInput.val().trim(),
+      password: passwordsignupInput.val().trim()
     };
 
     if (
       !userData.firstname ||
       !userData.lastname ||
-      !userData.emailsignup ||
-      !userData.passwordsignup
+      !userData.email ||
+      !userData.password
     ) {
       return;
     }
-    console.log(userData);
     signUpUser(
       userData.firstname,
       userData.lastname,
-      userData.emailsignup,
-      userData.passwordsignup
+      userData.email,
+      userData.password
     );
     firstnameInput.val("");
     lastnameInput.val("");
