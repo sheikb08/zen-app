@@ -48,7 +48,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/members");
+        window.location.replace("/main");
         // If there's an error, log the error
       })
       .catch(err => {
@@ -92,7 +92,7 @@ $(document).ready(() => {
         password: password
       })
         .then(() => {
-          window.location.replace("/login");
+          window.location.replace("/");
         })
         .catch(handleLoginErr);
     }
