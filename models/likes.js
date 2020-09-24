@@ -1,6 +1,3 @@
-User = require("./user")
-Quote = require("./quote")
-
 module.exports = function(sequelize, DataTypes) {
   const Likes = sequelize.define("Likes", {
     reflection: {
@@ -14,15 +11,15 @@ module.exports = function(sequelize, DataTypes) {
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: User,
-        key: 'id'
+        model: "Users",
+        key: "id"
       }
     },
     quoteId: {
       type: DataTypes.INTEGER,
       references: {
-        model: Quote,
-        key: 'id'
+        model: "Quotes",
+        key: "id"
       }
     }
   });

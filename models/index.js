@@ -14,15 +14,14 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-fs
-  .readdirSync(__dirname)
-  .filter(function(file) {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(function(file) {
-    var model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+var User = sequelize['import']('user.js');
+db[User.name] = User;
+var Checklist = sequelize['import']('checklist.js');
+db[Checklist.name] = Checklist;
+var Quote = sequelize['import']('quote.js');
+db[Quote.name] = Quote;
+var Likes = sequelize['import']('likes.js');
+db[Likes.name] = Likes;
 
 Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
