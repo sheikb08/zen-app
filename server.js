@@ -40,5 +40,8 @@ db.sequelize.sync().then(() => {
       PORT,
       PORT
     );
+
+    //Once database is created, require (and run) our external API queries
+    require("./routes/external-routes.js");
   });
 });
