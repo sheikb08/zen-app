@@ -128,11 +128,14 @@ body {
 
 body,
 main::before {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg);
     background-position: center;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 18px;
     background-color: #CCC;
+}
+
+.backg {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg);
 }
 
 main {
