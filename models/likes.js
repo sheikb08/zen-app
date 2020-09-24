@@ -7,20 +7,21 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Users",
+        key: "id"
+      }
+    },
+    quoteId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Quotes",
+        key: "id"
+      }
     }
   });
-
-  // User is One-To-Many to Likes
-  // - a User has many Likes
-  // - a Likes belongs to one User
-  User.hasMany(Likes);
-  Likes.belongsTo(User);
-
-  // Quote is One-To-Many to Likes
-  // - a Quote has many Likes
-  // - a Likes belongs to one Quote
-  Quote.hasMany(Likes);
-  Likes.belongsTo(Quote);
-
   return Likes;
 };
