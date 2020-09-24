@@ -1,12 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   const Likes = sequelize.define("Likes", {
-    quote: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    quote_author: {
-      type: DataTypes.STRING(100)
-    },
     reflection: {
       type: DataTypes.STRING(255)
     },
@@ -15,10 +8,17 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: false
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: {
         model: "Users",
+        key: "id"
+      }
+    },
+    quoteId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Quotes",
         key: "id"
       }
     }
