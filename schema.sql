@@ -53,7 +53,7 @@ CREATE TABLE likes (
 -- Create the table quotes.
 CREATE TABLE quotes (
   id int NOT NULL AUTO_INCREMENT,
-  quote VARCHAR(255) NOT NULL,
+  quote_body VARCHAR(255) NOT NULL,
   quote_author VARCHAR(255) NOT NULL,
   image_url VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
