@@ -83,7 +83,7 @@ async function mkQuoteItem() {
 }
 
 //Get quote/image each day at midnight
-cron.schedule("* 0 0 * * *", () => {
+cron.schedule("0 0 0 * * *", () => {
   mkQuoteItem();
 });
 
