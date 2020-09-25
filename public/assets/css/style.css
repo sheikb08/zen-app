@@ -1,21 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+form.signup,
+form.login {
+  margin-top: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
 }
 html,body{
   display: grid;
   height: 100%;
   width: 100%;
   place-items: center;
-  background: ;
 }
 .wrapper{
   overflow: hidden;
   max-width: 390px;
-  background: #F5EEE2;
+  background: rgb(153, 228, 209);
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
@@ -121,7 +125,6 @@ input[type="radio"]{
   /* box-shadow: inset 0 0 3px #fb6aae; */
 }
 .form-inner form .field input::placeholder{
-  color: ;
   transition: all 0.3s ease;
 }
 form .field input:focus::placeholder{
@@ -169,7 +172,6 @@ form .btn input[type="submit"]{
   position: relative;
   background: none;
   border: none;
-  color:  ;
   padding-left: 0;
   border-radius: 5px;
   font-size: 20px;
