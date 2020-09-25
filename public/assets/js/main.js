@@ -1,9 +1,10 @@
 $(document).ready(() => {
   function reflection(saveReflection) {
     $(".submit").on("click", () => {
-      saveReflection = $(".submit")
+      saveReflection = $("#comment_text")
         .val()
         .trim();
+      console.log(saveReflection);
       $.post("/api/likes", saveReflection);
     });
   }
