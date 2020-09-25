@@ -1,0 +1,177 @@
+.navbar {
+  background: #444;
+  transition: all .6s;
+  backface-visibility: hidden;
+  box-shadow: 0 2px 5px 1px rgba(51, 51, 51, 0.5);
+}
+
+.navbar-dark .navbar-nav {
+  font-size: 15px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  border: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: #444;
+}
+
+.navbar-dark .navbar-toggler:focus {
+  background: none;
+  outline: 0;
+}
+
+.navbar-dark .navbar-toggler span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 6px auto;
+  background: #fff;
+  transition: all .6s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+.navbar-dark .navbar-toggler:hover span,
+.navbar-dark .navbar-toggler:focus span {
+  background: #ccc;
+}
+
+/* rotate first span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:first-of-type {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+/* hide second span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
+  opacity: 0;
+}
+
+/* rotate third span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:last-of-type {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.navbar-dark .navbar-toggler[aria-expanded="false"] span {
+  transform: none;
+  opacity: 1;
+}
+
+.navbar-brand {
+  width: 162px;
+  height: 44px;
+  background: url(../img/logo.png) left center no-repeat;
+  border: 0;
+  text-indent: -99999px;
+}
+
+.navbar-dark .navbar-toggler span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 6px auto;
+  background: #fff;
+  transition: all .6s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+/* rotate first span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:first-of-type {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+/* hide second span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
+  opacity: 0;
+}
+
+/* rotate third span */
+.navbar-dark .navbar-toggler[aria-expanded="true"] span:last-of-type {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.navbar-dark .navbar-toggler[aria-expanded="false"] span {
+  transform: none;
+  opacity: 1;
+}
+* {
+box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+float: left;
+width: 50%;
+padding: 50px;
+height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+ #columns {
+     column-width: 320px;
+     column-gap: 15px;
+   width: 90%;
+   height: 90%;
+     max-width: 1100px;
+     margin: 50px auto;
+ }
+ 
+ div#columns figure {
+     background: #fefefe;
+     border: 2px solid #fcfcfc;
+     box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+     margin: 0 2px 15px;
+     padding: 15px;
+     padding-bottom: 10px;
+     transition: opacity .4s ease-in-out;
+   display: inline-block;
+   column-break-inside: avoid;
+ }
+ 
+ div#columns figure img {
+     width: 100%; height: auto;
+     border-bottom: 1px solid #ccc;
+     padding-bottom: 15px;
+     margin-bottom: 5px;
+ }
+ 
+ div#columns figure figcaption {
+   font-size: .9rem;
+     color: #444;
+   line-height: 1.5;
+ }
+ 
+ div#columns small { 
+   font-size: 1rem;
+   float: right; 
+   text-transform: uppercase;
+   color: #aaa;
+ } 
+ 
+ div#columns small a { 
+   color: #666; 
+   text-decoration: none; 
+   transition: .4s color;
+ }
+ 
+ @media screen and (max-width: 750px) { 
+   #columns { column-gap: 0px; }
+   #columns figure { width: 100%; }
+ }
