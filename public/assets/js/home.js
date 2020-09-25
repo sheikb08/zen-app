@@ -17,10 +17,10 @@ $(document).ready(() => {
   });
 
   $(".heart").on("click", () => {
-    reflection();
     // clear input box
     $(".submit").val("");
     // clear any old content
     $("#comment_text").empty();
+    reflection();
   });
 });
