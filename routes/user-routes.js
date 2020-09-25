@@ -9,6 +9,8 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
+      first_name: req.user.first_name,
+      last_name: req.user.last_name,
       email: req.user.email,
       id: req.user.id
     });
@@ -29,7 +31,7 @@ module.exports = function(app) {
         res.redirect(307, "/api/login");
       })
       .catch(err => {
-        res.status(401).json(err);
+        res.status(500).json(err);
       });
   });
 

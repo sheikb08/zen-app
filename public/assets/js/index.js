@@ -17,14 +17,14 @@ signupLink.onclick = () => {
 };
 
 $(document).ready(() => {
-  const loginForm = $("form.login");
-  const emailInput = $("input#email-input");
-  const passwordInput = $("input#password-input");
-  const signupForm = $("signup.form");
-  const firstnameInput = $("input#firstname-input");
-  const lastnameInput = $("input#lastname-input");
-  const emailsignupInput = $("input#emailsignup-input");
-  const passwordsignupInput = $("input#passwordsign-input");
+  const loginForm = $(".login");
+  const emailInput = $("#email-input");
+  const passwordInput = $("#password-input");
+  const signupForm = $(".signup");
+  const firstnameInput = $("#firstname-input");
+  const lastnameInput = $("#lastname-input");
+  const emailsignupInput = $("#emailsignup-input");
+  const passwordsignupInput = $("#passwordsignup-input");
 
   loginForm.on("submit", event => {
     event.preventDefault();
@@ -48,7 +48,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/members");
+        window.location.replace("/main");
         // If there's an error, log the error
       })
       .catch(err => {
@@ -61,23 +61,23 @@ $(document).ready(() => {
     const userData = {
       firstname: firstnameInput.val().trim(),
       lastname: lastnameInput.val().trim(),
-      emailsignup: emailsignupInput.val().trim(),
-      passwordsignup: passwordsignupInput.val().trim()
+      email: emailsignupInput.val().trim(),
+      password: passwordsignupInput.val().trim()
     };
 
     if (
       !userData.firstname ||
       !userData.lastname ||
-      !userData.emailsignup ||
-      !userData.passwordsignup
+      !userData.email ||
+      !userData.password
     ) {
       return;
     }
     signUpUser(
       userData.firstname,
       userData.lastname,
-      userData.emailsignup,
-      userData.passwordsignup
+      userData.email,
+      userData.password
     );
     firstnameInput.val("");
     lastnameInput.val("");
@@ -92,7 +92,7 @@ $(document).ready(() => {
         password: password
       })
         .then(() => {
-          window.location.replace("/login");
+          window.location.replace("/");
         })
         .catch(handleLoginErr);
     }

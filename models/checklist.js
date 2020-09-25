@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   const Checklist = sequelize.define("Checklist", {
     body: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     completed: {
