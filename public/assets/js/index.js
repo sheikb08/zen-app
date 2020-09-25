@@ -26,7 +26,7 @@ $(document).ready(() => {
   const emailsignupInput = $("#emailsignup-input");
   const passwordsignupInput = $("#passwordsignup-input");
 
-  function displayLogoutMessage() {
+  function displayLogoutModal() {
     const searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("logout")) {
       //Display Logout Modal with timeout
@@ -113,4 +113,6 @@ $(document).ready(() => {
       $("#alert").fadeIn(500);
     }
   });
+
+  displayLogoutModal();
 });
