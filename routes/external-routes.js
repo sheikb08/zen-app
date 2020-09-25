@@ -45,7 +45,7 @@ async function getQuote() {
 async function getImage() {
   const config = {
     method: "get",
-    url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}`,
+    url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}&orientation=landscape`,
     headers: {}
   };
 
