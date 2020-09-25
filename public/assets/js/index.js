@@ -26,6 +26,17 @@ $(document).ready(() => {
   const emailsignupInput = $("#emailsignup-input");
   const passwordsignupInput = $("#passwordsignup-input");
 
+  function displayLogoutMessage() {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has("logout")) {
+      //Display Logout Modal with timeout
+      $("#logoutModal").modal("show");
+      setTimeout(() => {
+        $("#logoutModal").modal("hide");
+      }, 2000);
+    }
+  }
+
   loginForm.on("submit", event => {
     event.preventDefault();
     const userData = {
