@@ -26,6 +26,7 @@ $(document).ready(() => {
   const emailsignupInput = $("#emailsignup-input");
   const passwordsignupInput = $("#passwordsignup-input");
 
+  //function determines if user has logged out, and displays logout modal if so. (Note: this does not work in IE, but does work in all other major browsers.)
   function displayLogoutModal() {
     const searchParams = new URLSearchParams(window.location.search);
     if (searchParams.has("logout")) {
