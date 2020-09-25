@@ -1,21 +1,12 @@
-const { getQuote, getImage } = require("./api_js");
-const history = [];
+const saveReflection = null;
 
 $(document).ready(() => {
-  function setStage() {
-    $(".quote").html(
-      "<style> background-image: url('" + getQuote() + "');</style>"
-    );
-    $(".backg").html(
-      "<style> background-image: url('" + getImage() + "');</style>"
-    );
-  }
-
   function reflection() {
     $(".submit").on("click", () => {
-      const saveReflection = $(".submit").val();
-      history.push(saveReflection);
-      setStage();
+      saveReflection = $(".submit")
+        .val()
+        .trim();
+      $.post("/api/likes", saveReflection);
     });
   }
 
