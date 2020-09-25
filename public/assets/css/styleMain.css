@@ -135,7 +135,7 @@ main::before {
 }
 
 .backg {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg);
+    /*background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg);*/
 }
 
 main {
@@ -232,7 +232,7 @@ textarea {
 .wrapper {
     overflow: hidden;
     max-width: 390px;
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg) 0 / cover fixed;
+    /*background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/80625/tree.jpg) 0 / cover fixed;*/
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
