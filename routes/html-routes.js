@@ -23,10 +23,17 @@ module.exports = function(app) {
       attributes: ["quote_body", "quote_author", "image_url"],
       order: [["id", "DESC"]]
     }).then(data => {
+      //const url = data.dataValues.image_url.replaceAll("/", "&#x2F");
+      //const url = data.dataValues.image_url.split("/");
       res.render("index", {
         quote: data.dataValues.quote_body,
         author: data.dataValues.quote_author,
-        image: data.dataValues.image_url
+        //image: url[0],
+        //image1: url[1],
+        //image2: url[2],
+        //image3: url[3],
+        //image4: "/"
+        url: data.dataValues.image_url
       });
     });
   });
