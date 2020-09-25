@@ -142,7 +142,7 @@ clear: both;
      padding-bottom: 10px;
      transition: opacity .4s ease-in-out;
    display: inline-block;
-   column-break-inside: avoid;
+   -webkit-column-break-inside: avoid;
  }
  
  div#columns figure img {
