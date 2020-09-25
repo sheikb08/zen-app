@@ -1,7 +1,5 @@
-const saveReflection = null;
-
 $(document).ready(() => {
-  function reflection() {
+  function reflection(saveReflection) {
     $(".submit").on("click", () => {
       saveReflection = $(".submit")
         .val()
