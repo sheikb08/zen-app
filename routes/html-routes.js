@@ -33,11 +33,7 @@ module.exports = function(app) {
   });
 
   app.get("/likes", isAuthenticated, (req, res) => {
-    const id = req.user.id;
-    db.Likes.findAll({
-      attributes: ["reflection", "quote", "quote_author"],
-      where: req.user.id
-    }).then(data => {
+    db.Likes.findAll({}).then(data => {
       console.log(data);
       res.render("likes");
     });
