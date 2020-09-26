@@ -88,6 +88,6 @@ This project was initially built in Sept. 2020 over 10 days by 5 people.
 
   ## Questions
 
-  Please address questions to [GAFelton](https://github.com/GAFelton). ([E-mail](64555318+GAFelton@users.noreply.github.com))
+  Please address questions to [sheikb08](https://github.com/sheikb08).
 
   
