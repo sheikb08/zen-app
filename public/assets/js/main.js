@@ -5,12 +5,13 @@ $(document).ready(() => {
         .val()
         .trim();
       console.log(saveReflection);
-      $.post("/api/likes", saveReflection);
+      $.post("/api/likes", {
+        quoteId: saveReflection
+      });
     });
   }
 
   $(".dislike").on("click", () => {
-    setStage();
     // clear input box
     $(".submit").val("");
     // clear any old content
