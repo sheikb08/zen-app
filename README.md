@@ -14,7 +14,7 @@ This project was initially built in Sept. 2020 over 10 days by 5 people.
 
 [Link to the Deployed Site](https://mighty-gorge-04831.herokuapp.com/)     ||    [Link to the GitHub Repo](https://github.com/GAFelton/zen-app)
 
-![main-page2](C:\Users\George Felton\Desktop\github\zen-app\image\main-page2.png)
+![main-page2](./image/main-page2.png)
 
   ## Table of Contents
 
@@ -54,7 +54,7 @@ This project was initially built in Sept. 2020 over 10 days by 5 people.
 
   Open the [url](https://mighty-gorge-04831.herokuapp.com/) (https://mighty-gorge-04831.herokuapp.com/) and create a user account. Once created, you will have access to Zen app whenever you like. Your credentials are encrypted and your entries are secure. Each day, a new image/quote pairing will be available, and you are invited to take a moment to write a short reflection. 
 
-![main-page](C:\Users\George Felton\Desktop\github\zen-app\image\main-page.png)
+![main-page](./image/main-page.png)
 
   ## License
 
