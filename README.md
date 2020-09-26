@@ -1,4 +1,4 @@
-# zen-app
+# Zen App
 
   ![GitHub](https://img.shields.io/github/license/GAFelton/zen-app)
 
@@ -11,16 +11,12 @@
   ## Table of Contents
 
  * [Installation](#Installation)
-
  * [Usage](#Usage)
-
- * [Contributing](#Contributing)
-
- * [Tests](#Tests)
-
- * [Questions](#Questions)
-
  * [License](#License)
+ * [Contributing](#Contributing)
+ * [Tests](#Tests)
+ * [Contributors](#Contributors)
+ * [Questions](#Questions)
 
   
 
@@ -38,7 +34,7 @@
 
   ## License
 
-  MIT
+  [MIT](./LICENSE)
 
   
 
@@ -53,6 +49,18 @@
   Run npm test for an ESLint test.
 
   
+
+## Contributors
+
+| Name                                                | Role      |
+| --------------------------------------------------- | :-------- |
+| [sarahcowgill](https://github.com/sarahcowgill)     | Back-end  |
+| [GAFelton](https://github.com/GAFelton)             | Back-end  |
+| [cheyennehunt99](https://github.com/cheyennehunt99) | Front-end |
+| [sheikb08](https://github.com/sheikb08)             | Front-end |
+| [mavn2](https://github.com/mavn2)                   | Back-end  |
+
+
 
   ## Questions
 
