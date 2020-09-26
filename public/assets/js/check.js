@@ -1,44 +1,53 @@
-const UIController = function() {
-  const DOMString = {
-    day: ".date--day",
-    month: ".date--month",
-    year: ".date--year",
-    addInput: ".add__input",
-    addBtn: ".add__circle",
-    taskListContainer: ".result__list",
-    listTask: ".list__task",
-    checkedBtn: ".list__task--check",
-    taskText: ".list__task--text",
-    editBtn: ".list__task--edit",
-    delBtn: ".list__task--del"
-  };
+var UIController = function(){
 
-  return {
-    testUI: function() {
-      console.log("Call from UI");
-    },
-    getDOMString: function() {
-      return DOMString;
-    },
-    getInput: function() {
-      return document.querySelector(DOMString.addInput).value;
-    },
+    var DOMString = {
+        day: '.date--day',
+        month: '.date--month',
+        year: '.date--year',
+        addInput: '.add__input',
+        addBtn: '.add__circle',
+        taskListContainer: '.result__list',
+        listTask: '.list__task',
+        checkedBtn: '.list__task--check',
+        taskText: '.list__task--text',
+        editBtn: '.list__task--edit',
+        delBtn: '.list__task--del'
+    }
 
-    clearInput: function() {
-      return document.querySelector(DOMString.addInput).value = "";
-     },
-    addTaskList: function(tasks) {;
+    return{
+        testUI: function(){
+            console.log('Call from UI');
+        },
+        
+        getDOMString: function(){
+            return DOMString;
+        },
 
-    const html, markup, element
-      element = DOMString.taskListContainer;
-      html = '<li class="list__task" id="task-%id%"><button class="list__task--check" id="check"><i class="ion-ios-checkmark"></i></button><div class="list__task--text">%description%</div><button class="list__task--del" id="del"><i class="ion-android-delete"></i></button></li>';
-      markup = html.replace("%id%", tasks.id);
-      markup = markup.replace("%description%", tasks.description);
+        getInput: function(){
+            return document.querySelector(DOMString.addInput).value;
+        },
 
+        clearInput: function(){
+            return document.querySelector(DOMString.addInput).value = "";
+        },
+        addTaskList: function(tasks){
+
+            var html, markup, element;
+        
+                element = DOMString.taskListContainer;
+                
+                html = '<li class="list__task" id="task-%id%"><button class="list__task--check" id="check"><i class="ion-ios-checkmark"></i></button><div class="list__task--text">%description%</div><button class="list__task--del" id="del"><i class="ion-android-delete"></i></button></li>';
+                
+            
+                markup = html.replace('%id%', tasks.id);
+                markup = markup.replace('%description%', tasks.description);
+
+           
                 document.querySelector(element).insertAdjacentHTML("afterbegin", markup);    
         },
 
         checkedTaskList: function(id){
+    
             var taskID = "task-"+id;
 
             var el = document.querySelectorAll(DOMString.listTask);
@@ -48,7 +57,7 @@ const UIController = function() {
                 var listID = el[i].id;
 
                 if(taskID === listID){
-                   
+                    
                     el[i].childNodes[0].classList.toggle('list__task--checked');
                     el[i].childNodes[1].classList.toggle('list__task--text--checked');
                 }
@@ -78,11 +87,12 @@ const UIController = function() {
             document.querySelector(DOMString.year).textContent =  year;
         }
     }
-};
-
+}();
 
 var TodolistController = function(){
+  
     var data = [];
+
     var Task = function(id, description){
         this.id = id,
         this.description = description
@@ -113,6 +123,7 @@ var TodolistController = function(){
 
         deleteTask: function(id){
             var ids, index;
+    
             ids = data.map(function(current){
                 return current.id;
             });
@@ -131,7 +142,9 @@ var MainController = function(TodoCtrl,UICtrl){
     var setupEventListener = function(){
         var DOM = UICtrl.getDOMString();
 
+        
         document.querySelector(DOM.addBtn).addEventListener('click', ctrlAdd);
+    
         document.querySelector(DOM.addInput).addEventListener('keypress', function(e){
             if(e.keyCode == 13 || e.which === 13){
                 ctrlAdd();
@@ -143,13 +156,18 @@ var MainController = function(TodoCtrl,UICtrl){
 
     var ctrlAdd = function(){
         var item;
+        
         item = UICtrl.getInput();
+        
         if(item !== "" && item !== " "){
+            
             var tasks = TodoCtrl.createNewTask(item);
+            
             UICtrl.addTaskList(tasks);
             UICtrl.clearInput();
         }
     }
+
     var ctrlEventCheck = function(event){
         var itemID, itemClass, IdSplit, ID;
 
@@ -167,7 +185,7 @@ var MainController = function(TodoCtrl,UICtrl){
             UICtrl.deleteTaskList(ID);
         };
     }
-
+    
     return{
         init: function(){
             console.log('script.js : connecting..');
