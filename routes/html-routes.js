@@ -32,12 +32,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/likes", isAuthenticated, (req, res) => {
-    db.Likes.findAll({}).then(() => {
-      res.render("likes");
-    });
-  });
-
   app.use((req, res, next) => {
     res.status(404).send("Sorry can't find that!");
     next();
