@@ -1,9 +1,9 @@
 const db = require("../models");
 
 module.exports = function(app) {
-  //GET ALL checklist items
+  //GET ALL checklist items for a user
   app.get("/api/list", (req, res) => {
-    db.Checklist.findAll({})
+    db.Checklist.findAll({ where: { user_id: req.user.id } })
       .then(data => {
         //Currently returns list, may switch to res.render for HBS
         res.status(200).json(data);
@@ -13,9 +13,11 @@ module.exports = function(app) {
       });
   });
 
-  //GET ALL Completed items: speculative, but possibly useful
+  //GET ALL Completed & Hiddden items: speculative, but possibly useful
   app.get("/api/list/completed", (req, res) => {
-    db.Checklist.findAll({ where: { completed: 1, hidden: 1 } })
+    db.Checklist.findAll({
+      where: { user_id: req.user.id, completed: 1, hidden: 1 }
+    })
       .then(data => {
         res.status(200).json(data);
       })
@@ -26,9 +28,8 @@ module.exports = function(app) {
 
   //GET checklist item
   app.get("/api/list/:id", (req, res) => {
-    db.Checklist.findAll({ where: { id: req.params.id } })
+    db.Checklist.findOne({ where: { id: req.params.id } })
       .then(data => {
-        //As above, could be res.render, or location.reload, or something else
         res.status(200).json(data);
       })
       .catch(err => {
@@ -39,13 +40,10 @@ module.exports = function(app) {
   //POST checklist item
   app.post("/api/list", (req, res) => {
     db.Checklist.create({
-      //Assuming body.value is pulled from todo text entry field
       body: req.body.value,
-      //How should we get user's id into body for this?
-      user_id: req.body.user
+      user_id: req.user.id
     })
       .then(data => {
-        //May not need to return data, also see above
         res.status(200).json(data);
       })
       .catch(err => {
@@ -53,17 +51,32 @@ module.exports = function(app) {
       });
   });
 
-  //UPDATE checklist item as complete-assuming item completion is stored as data in html,
-  //could rewrite this to be a more dynamic switch: if completed items can be viewed,
-  //that would solve my concern below
+  //UPDATE checklist item as complete
   app.put("/api/list/:id", (req, res) => {
     const id = req.params.id;
     db.Checklist.update(
       {
-        completed: 1,
-        //Should below be a separate call/route (/complete)?
-        //Might be difficult to reverse accidental 'deletion' otherwise.
-        //If so: how to implement on page (and in backend)?
+        completed: 1
+      },
+      {
+        where: {
+          id: id
+        }
+      }
+    )
+      .then(data => {
+        res.status(200).json(data);
+      })
+      .catch(err => {
+        res.status(404).json(err);
+      });
+  });
+
+  //UPDATE checklist item as hidden
+  app.put("/api/list/:id", (req, res) => {
+    const id = req.params.id;
+    db.Checklist.update(
+      {
         hidden: 1
       },
       {
@@ -73,7 +86,6 @@ module.exports = function(app) {
       }
     )
       .then(data => {
-        //As above, decide how to handle this code post testing/html dev
         res.status(200).json(data);
       })
       .catch(err => {

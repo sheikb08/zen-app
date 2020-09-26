@@ -45,7 +45,7 @@ async function getQuote() {
 async function getImage() {
   const config = {
     method: "get",
-    url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}`,
+    url: `https://api.unsplash.com/collections/327760/photos?client_id=${key}&orientation=landscape`,
     headers: {}
   };
 
@@ -53,8 +53,15 @@ async function getImage() {
   const imgURL = await axios(config)
     .then(response => {
       //Selects image at random
-      const imgId = Math.floor(Math.random() * response.data.length);
-
+      //Finds an image with width greater than height. If loop runs 10x, break and use that imgId.
+      let i = 0;
+      do {
+        imgId = Math.floor(Math.random() * response.data.length);
+        if (i > 10) {
+          break;
+        }
+        i++;
+      } while (!(response.data[imgId].width >= response.data[imgId].height));
       //Retrieves image url
       return response.data[imgId].urls.regular;
     })

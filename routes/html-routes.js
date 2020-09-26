@@ -32,6 +32,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/checklist", isAuthenticated, (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/checklist.html"));
+  });
+
   app.use((req, res, next) => {
     res.status(404).send("Sorry can't find that!");
     next();
