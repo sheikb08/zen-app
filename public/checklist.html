@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="./assets/css/likes.css" rel="stylesheet">
+  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/checklist.css" rel="stylesheet">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
               <a class="nav-link scroll-link" href="main.html">Home Page <i class="fa fa-home"></i></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link scroll-link" href="checklist.html">List view <i class="fa fa-calendar "></i></a>
+              <a class="nav-link scroll-link" href="likes.html">View Likes <i class="fa fa-heart "></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link scroll-link" href="index.html">Logout <i class="fa fa-frown-o"></i></a>
@@ -42,26 +43,28 @@
         </div>
       </nav>
 
-      <div id="columns">
-        <figure>
-        <img src="">
-        </figure>
-        
-        <figure>
-        <img src="">
-        </figure>
-        
-        <figure>
-        <img src="">
-        </figure>
-        
-        <figure>
-        <img src="">
-        </figure>
+        <div class="todolist">
+            <div class="todolist__main">
+                <div class="todolist__header">
+    
+                        <div class="todolist__header--date">
+                            <span class="date--day">""</span>
+                            <div class="warpper">
+                                <span class="date--month">""</span>
+                                <span class="date--year">""</span>
+                            </div>   
+                            <button class="add__circle"><i class="ion-plus-circled"></i></button>
+                        </div>
+                        
+                        <input class="add__input" type="text" placeholder="Add a new task ">      
+                </div>
+                <div class="todolist__result">
+                    <ul class="result__list">   
+                    </ul>
+                </div>
+            </div>
         </div>
-
-  
-
+        
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -71,8 +74,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-  <script type="text/javascript" src=""></script>
+        <script src="./assets/js/check.js"></script>
+        
+    </body>
+    </html>
 
-</body>
-
-</html>
