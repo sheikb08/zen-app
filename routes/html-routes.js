@@ -34,7 +34,6 @@ module.exports = function(app) {
 
   app.get("/likes", isAuthenticated, (req, res) => {
     db.Likes.findAll({}).then(data => {
-      console.log(data);
       res.render("likes");
     });
   });

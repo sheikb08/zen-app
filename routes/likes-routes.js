@@ -3,12 +3,11 @@ const db = require("../models");
 module.exports = function(app) {
   //GET ALL Likes items for a user
   app.get("/api/likes", (req, res) => {
+    console.log(req.user.id)
     db.Likes.findAll({
       where: {
-        userId: req.body.userId,
-        hidden: req.body.hidden
-      },
-      include: Quote
+        userId: req.user.id
+      }
     })
       .then(data => {
         res.status(200).json(data);
@@ -19,7 +18,7 @@ module.exports = function(app) {
   });
 
   //GET one Likes item for a user, by id
-  app.get("/api/likes/:id", (req, res) => {
+  app.get("/api/like/:id", (req, res) => {
     db.Likes.findOne({
       where: {
         id: req.params.id,
