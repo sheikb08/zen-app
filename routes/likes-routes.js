@@ -1,8 +1,9 @@
 const db = require("../models");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   //GET ALL Likes items for a user
-  app.get("/likes", (req, res) => {
+  app.get("/likes", isAuthenticated, (req, res) => {
     db.Likes.findAll({
       where: {
         userId: req.user.id
@@ -11,11 +12,9 @@ module.exports = function(app) {
     })
       .then(data => {
         //Set data to key for passing to handlebars
-        const favs = { favs: data }
-        console.log(favs[0].dataValues)
-        console.log(data[0].dataValues)
+        const hbsObject = { likes: data };
         //Render data in handlebars
-        res.status(200).render("likes", favs);
+        res.status(200).render("likes", hbsObject);
       })
       .catch(err => {
         res.status(500).json(err);

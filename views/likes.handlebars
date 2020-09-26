@@ -32,11 +32,11 @@
       </nav>
 
       <div id="columns">
-      {{#each favs}}
+      {{#each likes}}
         <figure>
-         <p>{{Quote.Quote.dataValues.quote_body}}</p>
+         <p>{{dataValues.Quote.quote_body}}</p> 
         <img src="">
-         <p>{{Likes.dataValues.reflection}}</p>
+          <p>{{dataValues.reflection}}</p>
         </figure>
       {{/each}}
       </div>
